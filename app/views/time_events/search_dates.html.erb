@@ -1,0 +1,26 @@
+<!-- <script>
+	var evt_type='event';
+</script>
+<div id="event_duration_choice">
+	<%= link_to_function('Occurred during',"$('event_type').value='during';$('numeric_text_choice').show();$('event_duration_choice').hide();")%><br>
+	<%= link_to_function('In Whole',"$('event_type').value='in_whole';$('event_duration_choice').hide();$('numeric_text_choice').show();")%>
+</div>
+<div id="numeric_text_choice" style="display:none">
+	<%= link_to_function('Day',"$('numeric_content').show();$('start_day_fields').show();$('end_day_fields').show();$('numeric_text_choice').hide();")%><br>
+	<%= link_to_function('Year',"$('numeric_content').show();$('start_day_fields').hide();$('end_day_fields').hide();$('numeric_text_choice').hide();")%><br>
+	<%#= link_to_function('Century',"$('numeric_text_choice').hide();$('textual_content_container_start').show();if(evt_type=='duration') {$('textual_content_container_stop').show();$('date_metric2').value='century';};$('date_metric').value='century';$('visualize_all').show();")%>
+</div> -->
+<div id="numeric_content" style="">
+	<% form_remote_tag (:url => {:action => 'search_dates_action'}, :update => 'results') do -%>
+		<input type="hidden" id="search_event_type" name="event_type" value="during">
+		<input type="radio" onclick="$('search_event_type').value='during';" name="evt_button" checked> Occurred During
+		<input type="radio" onclick="$('search_event_type').value='in_whole';" name="evt_button"> In Whole 
+		<strong>Start:</strong> <input name="start_year" size="4">/<input name="start_month" size="2">/<input name="start_day" size="2">
+		<strong>End:</strong> <input name="end_year" size="4">/<input name="end_month" size="2">/<input name="end_day" size="2">
+		<%= submit_tag 'Search' %>
+		<%= link_to('Reset', :url => {:action => 'search_dates'})%>
+	<% end -%>
+</div>
+<div id="results">
+	<%= render :active_scaffold => 'time_events' %>
+</div>

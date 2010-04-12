@@ -1,0 +1,120 @@
+<script>
+	var evt_type='event';
+</script>
+<% new_numeric_start = false %>
+<% new_numeric_end = false %>
+<% new_text_start = false %>
+<% new_text_end = false %>
+<% if @record.begin_date_start == nil %>
+	<% new_numeric_start=true %>
+	<% new_text_start=true %>
+<div id="event_duration_choice">
+	<%= link_to_function('Event',"evt_type='event';$('numeric_text_choice').show();$('event_duration_choice').hide();")%><br>
+	<%= link_to_function('Duration',"evt_type='duration';$('event_duration_choice').hide();$('numeric_text_choice').show();$('end_day_fields').show();")%>
+</div>
+<div id="numeric_text_choice" style="display:none">
+	<%= link_to_function('Day',"$('day_fields').show();if(evt_type=='duration') {$('end_day_fields').show();};$('numeric_text_choice').hide();$('date_metric').value='day';$('date_range_fields').hide();")%><br>
+	<%= link_to_function('Year',"$('numeric_content_container_start').show();if(evt_type=='duration') {$('numeric_content_container_stop').show();$('date_metric2').value='year';};$('numeric_text_choice').hide();$('date_metric').value='year';$('visualize_all').show();")%><br>
+	<%= link_to_function('Century',"$('numeric_text_choice').hide();$('textual_content_container_start').show();if(evt_type=='duration') {$('textual_content_container_stop').show();$('date_metric2').value='century';};$('date_metric').value='century';$('visualize_all').show();")%>
+</div>
+<% end %>
+<% if @record.finish_date_start == nil %>
+	<% new_numeric_end=true %>
+	<% new_text_end=true %>
+<% end %>
+	<div id="day_fields" <% if (new_numeric_start == true) or (new_numeric_start == false and @record.begin_type!='day') %>style="display:none"<% end %>>
+		<strong>Begin:</strong>
+		<%= text_field("record",'date_start_year',{:size => "4"})%>/<%= text_field("record",'date_start_month',{:size => "2"})%>/<%= text_field("record",'date_start_day',{:size => "2"})%> (YYYY/MM/DD)<br>
+		<span id="end_day_fields" <% if (new_numeric_start == true) or (new_numeric_start == false and @record.begin_type=='day' and @record.date_end_year == 0) %>style="display:none" <% end %>>
+			<strong>End:</strong>
+			<%= text_field("record",'date_end_year',{:size => "4"})%>/<%= text_field("record",'date_end_month',{:size => "2"})%>/<%= text_field("record",'date_end_day',{:size => "2"})%> (YYYY/MM/DD)
+		</span>
+	</div>
+	<% if new_numeric_start == true or @record.begin_type == 'day' or @record.begin_type == 'century'%>
+	<div id="numeric_content_container_start" style="display:none">
+	<% else %>
+	<div id="numeric_content_container_start">
+	<% end %>
+		<fieldset id = "datefields">
+			<strong>Begin Date:</strong>
+			<label for = "datestart">Start:</label>  <input type = "text" id = "datestart" name="record[begin_date_start]" value="<%= @record.begin_date_start %>">
+			<span id="date_range_fields">
+			<label for = "datecenter">Center:</label>  <input type = "text" id = "datecenter" name="record[begin_date_center]" value="<%= @record.begin_date_center %>">		
+			<label for = "dateend">End:</label>  <input type = "text" id = "dateend" name="record[begin_date_end]" value="<%= @record.begin_date_end %>">
+			</span>
+			<!-- <input type="hidden" id="datecenter" value="2006<%#= @split %>"> -->
+			<!-- <%= check_box('record','begin_precise', {:id => 'precise'})%> Precise -->
+			<%= hidden_field('record', 'begin_type', {:id => 'date_metric'})%>
+			<input type="button" value="Visualize" onclick="insert_slider_controls('begin_slider','datestart','datecenter','dateend','date_metric','precise')">
+			<%#= link_to_function('Visualize','insert_slider_controls("begin_slider","datestart","datecenter","dateend","date_metric","precise")') %>
+			<div id="begin_slider"></div>
+
+			<br />
+				</fieldset>
+	</div>
+	<% if new_numeric_end == true or @record.begin_type == 'day' or @record.begin_type == 'century' %>
+	<div id="numeric_content_container_stop" style="display:none">
+	<% else %>
+	<div id="numeric_content_container_stop">
+	<% end %>
+		<fieldset id = "datefields2">
+			<strong>End Date:</strong>
+			<label for = "datestart2">Start:</label>  <input type = "text" id = "datestart2" name="record[finish_date_start]" value="<%= @record.finish_date_start %>"> 		
+			<label for = "datecenter2">Center:</label>  <input type = "text" id = "datecenter2" name="record[finish_date_center]" value="<%= @record.finish_date_center %>">
+			<label for = "dateend2">End:</label>  <input type = "text" id = "dateend2" name="record[finish_date_end]" value="<%= @record.finish_date_end %>">
+			<!-- <%= check_box('record','finish_precise', {:id => 'precise2'})%> Precise -->
+			<%= hidden_field('record', 'finish_type', {:id => 'date_metric2'})%>
+			<input type="button" value="Visualize" onclick="insert_slider_controls('begin_slider2','datestart2','datecenter2','dateend2','date_metric2','precise2')">
+			<%#= link_to_function('Visualize','insert_slider_controls("begin_slider2","datestart2","datecenter2","dateend2","date_metric2","precise2")') %>
+
+			<div id="begin_slider2"></div>
+
+
+		</fieldset>
+	</div>
+<% if new_text_start == true or @record.begin_type != 'century' %>
+<div id="textual_content_container_start" style="display:none">
+<% else %>
+<div id="textual_content_container_start">
+<% end %>
+	Century: <%= select("record", "date_start_century", [['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]],  {:include_blank => true},{:id => 'century_start_year', :onclick => "$('datestart').value=this.value;$('datecenter').value=this.value;$('dateend').value=this.value;"}) %>
+	Encoding: <%= select("record", "begin_encoding_type", ['circa','Century','beginCent','midCent','endCent','turnCent','1st half','2nd half','1st third','2nd third','3rd third','1st quarter','2nd quarter','3rd quarter','4th quarter','openLeft','openRight'], {:include_blank => true}, {:id => 'begin_encoding_type', :onclick => ""}) %>
+	<% if @record.date_start_year_secondary == nil %>
+		<span id="expand_begin">
+			<%= link_to_function('Expand', "$('expand_begin').hide();$('begin_secondary').show();")%>
+		</span>
+	<% end %>
+	<% if @record.date_start_year_secondary == nil %>
+		<span id="begin_secondary" style="display:none">
+	<% else %>
+		<span id="begin_secondary" >
+	<% end %>
+		<strong>End: </strong>
+		Century: <%= select("record", "date_start_century_secondary", [['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]],  {:include_blank => true},{:id => 'century_start_year_secondary'}) %>
+		Encoding: <%= select("record", "begin_encoding_type_secondary", ['circa','Century','beginCent','midCent','endCent','turnCent','1st half','2nd half','1st third','2nd third','3rd third','1st quarter','2nd quarter','3rd quarter','4th quarter','openLeft','openRight'], {:include_blank => true}, {:id => 'begin_encoding_type_secondary', :onclick => ""}) %>
+	</span>
+	
+</div>
+
+ <% if new_text_end == true or @record.begin_type != 'century' %>
+<div id="textual_content_container_stop" style="display:none">
+<% else %>
+<div id="textual_content_container_stop">
+<% end %>
+	Century: <%= select("record", "date_end_century", [['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]], {:include_blank => true}, {:id => 'century_finish_year', :onclick => "$('datestart2').value=this.value;$('datecenter2').value=this.value;$('dateend2').value=this.value;"}) %>
+	Encoding: <%= select("record", "finish_encoding_type", ['circa','Century','beginCent','midCent','endCent','turnCent','1st half','2nd half','1st third','2nd third','3rd third','1st quarter','2nd quarter','3rd quarter','4th quarter','openLeft','openRight'], {:include_blank => true}, {:id => 'finish_encoding_type', :onclick => ""}) %>
+	<% if @record.date_start_year_secondary == nil %>
+		<span id="expand_end">
+			<%= link_to_function('Expand', "$('expand_end').hide();$('end_secondary').show();")%>
+		</span>
+	<% end %>
+	<% if @record.date_end_year_secondary == nil %>
+		<span id="end_secondary" style="display:none">
+	<% else %>
+		<span id="end_secondary" >
+	<% end %>
+		<strong>End: </strong>
+		Century: <%= select("record", "date_end_century_secondary", [['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]],  {:include_blank => true},{:id => 'century_end_year_secondary'}) %>
+		Encoding: <%= select("record", "finish_encoding_type_secondary", ['circa','Century','beginCent','midCent','endCent','turnCent','1st half','2nd half','1st third','2nd third','3rd third','1st quarter','2nd quarter','3rd quarter','4th quarter','openLeft','openRight'], {:include_blank => true}, {:id => 'end_encoding_type_secondary', :onclick => ""}) %>
+	</span>
+</div>
