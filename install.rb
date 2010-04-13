@@ -25,7 +25,7 @@ FileUtils.install(plugin_dir + "/views/time_events/show.html.erb", view_dir + '/
 plugin_dir = File.dirname(__FILE__) + "/public"
 FileUtils.install(plugin_dir + "/javascripts/centerdecadedateslider.js", public_dir + '/javascripts')
 FileUtils.install(plugin_dir + "/javascripts/centerdecadedateviewer.js", public_dir + '/javascripts')
-FileUtils.install(plugin_dir + "/javascripts/ate-en-US.js", public_dir + '/javascripts')
+FileUtils.install(plugin_dir + "/javascripts/date-en-US.js", public_dir + '/javascripts')
 FileUtils.install(plugin_dir + "/javascripts/dateslider.js", public_dir + '/javascripts')
 FileUtils.install(plugin_dir + "/javascripts/dateviewer.js", public_dir + '/javascripts')
 FileUtils.install(plugin_dir + "/javascripts/decadedateslider.js", public_dir + '/javascripts')
