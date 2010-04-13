@@ -34,7 +34,7 @@ div#controls {
 
 div#sliderbar {
 	position:absolute;
-	background: url(../img/slidebg.gif) repeat-x;
+	background: url(../images/slidebg.gif) repeat-x;
 	background-position:0px 6px;
 	width:3000px;
 	height:30px;
