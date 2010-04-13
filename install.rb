@@ -1,4 +1,5 @@
 # Install hook code here
+
 require 'fileutils'
 
 model_dir = File.dirname(__FILE__) + "/../../../app/models"
