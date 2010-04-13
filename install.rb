@@ -4,7 +4,7 @@ require 'fileutils'
 model_dir = File.dirname(__FILE__) + "/../../../app/models"
 controller_dir = File.dirname(__FILE__) + "/../../../app/controllers"
 view_dir = File.dirname(__FILE__) + "/../../../app/views"
-plugin_dir = File.dirname(__FILE__) + "/app"
+plugin_dir = File.dirname(__FILE__) + "/lib/app"
 
 FileUtils.install(plugin_dir + "/controllers/time_events_controller.rb", controller_dir)
 FileUtils.install(plugin_dir + "/models/time_event.rb", model_dir)
