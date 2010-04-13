@@ -1,5 +1,4 @@
 class TimeEvent < ActiveRecord::Base
-  layout 'admin'
   
   before_save :parse_dates
   

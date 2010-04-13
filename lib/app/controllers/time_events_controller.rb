@@ -1,4 +1,5 @@
 class TimeEventsController < ApplicationController
+  layout 'admin'
   
   protect_from_forgery :only => [:create, :update, :destroy] 
   
