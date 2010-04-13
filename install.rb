@@ -33,3 +33,5 @@ FileUtils.install(plugin_dir + "/javascripts/precisedateslider.js", public_dir +
 FileUtils.install(plugin_dir + "/javascripts/precisedecadedateslider.js", public_dir + '/javascripts')
 
 FileUtils.install(plugin_dir + "/stylesheets/dateslider.css", public_dir + '/stylesheets')
+
+FileUtils.install(plugin_dir + "/images/slidbg.gif", public_dir + '/images')
