@@ -1,6 +1,4 @@
 class TimeEvent < ActiveRecord::Base
-  belongs_to :name, :class_name => 'MultiLingual', :foreign_key => 'name_id'
-  belongs_to :place, :class_name => 'MultiLingual', :foreign_key => 'place_id'
   
   before_save :parse_dates
   
@@ -19,7 +17,7 @@ class TimeEvent < ActiveRecord::Base
       if date_start_plus_delta > 0 and date_end_year == 0
         str += " - #{date_start_year+date_start_plus_delta}"
       end
-      if date_end_year != 0
+      if date_end_year != 0 and date_end_year != nil
         str += " - #{date_end_year+date_end_plus_delta}"
       end
     else

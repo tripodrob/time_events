@@ -26,9 +26,9 @@ class TimeEvent < ActiveRecord::Migration
       t.integer  "date_start_minus_delta",                        :default => 0
       t.integer  "date_end_minus_delta",                          :default => 0
       t.integer  "date_end_plus_delta",                           :default => 0
-      t.integer  "date_end_day",                                  :default => 0
-      t.integer  "date_end_month",                                :default => 0
-      t.integer  "date_end_year",                                 :default => 0
+      t.integer  "date_end_day"
+      t.integer  "date_end_month"
+      t.integer  "date_end_year"
       t.integer  "date_start_encoding_value"
       t.integer  "date_span_value",                               :default => 0
       t.string   "finish_encoding_type",           :limit => nil
