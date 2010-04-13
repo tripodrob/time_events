@@ -1,13 +1,22 @@
 TimeEvent
 =========
 
-Introduction goes here.
+Provide a tool to create "fuzzy" events and durations.
 
+After installation run: 
 
-Example
-=======
+rake db:migrate:time_event
 
-Example goes here.
+Add the following to the layout:
+
+ <%= javascript_include_tag 'date-en-US' %>
+ <%= javascript_include_tag 'dateslider' %>
+ <%= javascript_include_tag 'dateviewer' %>
+ <%= javascript_include_tag 'centerdecadedateslider' %>
+ <%= javascript_include_tag 'centerdecadedateviewer' %>
+ <%= javascript_include_tag 'precisedateslider' %>
+ <%= javascript_include_tag 'precisedecadedateslider' %>
+ <%= stylesheet_link_tag 'dateslider'%>
 
 
 Copyright (c) 2010 [name of plugin creator], released under the MIT license
