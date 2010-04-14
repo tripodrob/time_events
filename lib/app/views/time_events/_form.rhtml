@@ -166,7 +166,7 @@
 			};
 
 			var options={dragHandles:true,dragBar:false,onStart:function(){},onEnd:function(){},dayWidth: 4,dateFormat : 'yyyy',zoom : false,centerDate : datecenter};
-			p_oDateSlider = new CenterDecadeDateViewer("sliderbar", datestart,datecenter,dateend, datestart2,datecenter2,dateend2, 1000, 2010, options);
+			p_oDateSlider = new CenterDecadeDateViewer("sliderbar", datestart,datecenter,dateend, datestart2,datecenter2,dateend2, 100, 2010, options);
 			p_oDateSlider.attachFields($(start_field), $(end_field), $(center_field));
 		} else 	{
 				var datestart = "1300-01-01";
@@ -391,7 +391,7 @@
 				// };
 
 				var options={dragHandles:true,dragBar:false,onStart:function(){},onEnd:function(){},dayWidth: 4,dateFormat : 'yyyy',zoom : false,centerDate : datecenter};
-				p_oDateSlider = new CenterDecadeDateViewer("sliderbar", datestart,datecenter,dateend, datestart2,datecenter2,dateend2, 1000, 2010, options);
+				p_oDateSlider = new CenterDecadeDateViewer("sliderbar", datestart,datecenter,dateend, datestart2,datecenter2,dateend2, 100, 2010, options);
 				p_oDateSlider.attachFields($(start_field), $(end_field), $(center_field));
 			}
 	}
@@ -421,7 +421,7 @@
 		d.setTime(Date.parse(datestart).getTime()+(Date.parse(dateend).getTime()-Date.parse(datestart).getTime())/2);
 		datecenter=d.toString('dd-MM-yyyy');
 		var options={dragHandles:true,dayWidth: 4,dateFormat : 'yyyy',zoom : true,centerDate : datecenter};
-		p_oDateSlider = new CenterDecadeDateSlider("sliderbar", datestart,dateend, 1000, 2010, options);
+		p_oDateSlider = new CenterDecadeDateSlider("sliderbar", datestart,dateend, 100, 2010, options);
 		p_oDateSlider.attachFields($(start_field), $(end_field), $(center_field));
 	}
 	//  params - first three are values, the last three are field names
@@ -430,7 +430,7 @@
 		d.setTime(Date.parse(datestart).getTime()+(Date.parse(dateend).getTime()-Date.parse(datestart).getTime())/2);
 		datecenter=d.toString('dd-MM-yyyy');
 		var options={dragHandles:true,dayWidth: 4,dateFormat : 'yyyy',zoom : true,centerDate : datecenter};
-		p_oDateSlider = new PreciseDecadeDateSlider("sliderbar", datestart,dateend, 1000, 2010, options);
+		p_oDateSlider = new PreciseDecadeDateSlider("sliderbar", datestart,dateend, 100, 2010, options);
 		p_oDateSlider.attachFields($(start_field), $(end_field), $(center_field));
 	}
 </script>

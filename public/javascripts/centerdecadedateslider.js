@@ -7,6 +7,17 @@ Date.prototype.getDiffYears = function(p_oDate) {
 	return Math.abs(Math.ceil((p_oDate.getTime()-this.getTime())/(p_iOneDay)));
 }
 
+function pad(number, length) {
+   
+    var str = '' + number;
+    while (str.length < length) {
+        str = '0' + str;
+    }
+   
+    return str;
+
+}
+
 /* The dateslider */
 CenterDecadeDateSlider = Class.create({
 	initialize : function(p_sBarId, p_sStartDate, p_sEndDate, p_iStartYear, p_iEndYear, options) {
@@ -80,7 +91,7 @@ CenterDecadeDateSlider = Class.create({
 
 		l_iYear = this.iStartYear;
 		while(l_iYear <= this.iEndYear) {		
-			l_oData = Date.parse('01-01-'+l_iYear);
+			l_oData = Date.parse('01-01-'+pad(l_iYear,4));
 			if(l_oData.isLeapYear()) iDays = 366; else iDays = 365;  
 			
 			divWidth = sliderDayDivWidth*10; //iDays;
