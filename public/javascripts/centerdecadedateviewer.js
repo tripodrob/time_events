@@ -31,13 +31,13 @@ CenterDecadeDateViewer = Class.create({
     	this.barEndDate = new Date().set({year:p_iEndYear, month:11, day:31});
 		
 		/* Panel dates */
-		this.oStartDate = Date.parse(p_sStartDate);
-		this.centerDate = Date.parse(p_sCenterDate);		
-		this.oEndDate = Date.parse(p_sEndDate);		
+		this.oStartDate = Date.parse(pad(p_sStartDate,4));
+		this.centerDate = Date.parse(pad(p_sCenterDate,4));		
+		this.oEndDate = Date.parse(pad(p_sEndDate,4));		
 
-		this.oStartDate2 = Date.parse(p_sStartDate2);
-		this.centerDate2 = Date.parse(p_sCenterDate2);		
-		this.oEndDate2 = Date.parse(p_sEndDate2);		
+		this.oStartDate2 = Date.parse(pad(p_sStartDate2,4));
+		this.centerDate2 = Date.parse(pad(p_sCenterDate2,4));		
+		this.oEndDate2 = Date.parse(pad(p_sEndDate2,4));		
 
 		/* The fields (set later) */
 		this.oStartField = null;
@@ -51,10 +51,10 @@ CenterDecadeDateViewer = Class.create({
 		this.sliderBarMargin = 2;
 		
 		/* Set the start/end dates */
-		l_oStartDate = Date.parse(p_sStartDate);
-		l_oEndDate = Date.parse(p_sEndDate);
-		l_oStartDate2 = Date.parse(p_sStartDate2);
-		l_oEndDate2 = Date.parse(p_sEndDate2);
+		l_oStartDate = Date.parse(pad(p_sStartDate,4));
+		l_oEndDate = Date.parse(pad(p_sEndDate,4));
+		l_oStartDate2 = Date.parse(pad(p_sStartDate2,4));
+		l_oEndDate2 = Date.parse(pad(p_sEndDate2,4));
 		
 		/* The options */
 	    this.options = {
