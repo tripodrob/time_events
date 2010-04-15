@@ -223,43 +223,43 @@ class TimeEvent < ActiveRecord::Base
         end
         if self.date_start_century_secondary != nil  # add in plus delta for right bounds
           self.date_start_year_secondary = case self.begin_encoding_type_secondary
-            when 'openLeft' then self.date_start_year_secondary
-            when 'turnCent' then self.date_start_year_secondary
-            when 'circa' then self.date_start_year_secondary
-            when 'Century' then self.date_start_year_secondary
-            when '1st third' then self.date_start_year_secondary + 16
-            when '2nd third' then self.date_start_year_secondary + 50
-            when '3rd third' then self.date_start_year_secondary + 83
-            when '1st quarter' then self.date_start_year_secondary + 12
-            when '2nd quarter' then self.date_start_year_secondary + 37
-            when '3rd quarter' then self.date_start_year_secondary + 62
-            when '4th quarter' then self.date_start_year_secondary + 87
-            when '1st half' then self.date_start_year_secondary+25
-            when '2nd half' then self.date_start_year_secondary+75
-            when 'beginCent' then self.date_start_year_secondary+12
-            when 'midCent' then self.date_start_year_secondary + 50
-            when 'precise' then self.date_start_year_secondary
-            when 'endCent' then self.date_start_year_secondary + 87
-            when 'openRight' then self.date_start_year_secondary
+            when 'openLeft' then self.date_start_century_secondary
+            when 'turnCent' then self.date_start_century_secondary
+            when 'circa' then self.date_start_century_secondary
+            when 'Century' then self.date_start_century_secondary
+            when '1st third' then self.date_start_century_secondary + 16
+            when '2nd third' then self.date_start_century_secondary + 50
+            when '3rd third' then self.date_start_century_secondary + 83
+            when '1st quarter' then self.date_start_century_secondary + 12
+            when '2nd quarter' then self.date_start_century_secondary + 37
+            when '3rd quarter' then self.date_start_century_secondary + 62
+            when '4th quarter' then self.date_start_century_secondary + 87
+            when '1st half' then self.date_start_century_secondary+25
+            when '2nd half' then self.date_start_century_secondary+75
+            when 'beginCent' then self.date_start_century_secondary+12
+            when 'midCent' then self.date_start_century_secondary + 50
+            when 'precise' then self.date_start_century_secondary
+            when 'endCent' then self.date_start_century_secondary + 87
+            when 'openRight' then self.date_start_century_secondary
           end
           self.date_start_plus_delta = case self.begin_encoding_type_secondary
-            when 'openLeft' then self.date_start_year_secondary - self.date_start_year
-            when 'turnCent' then self.date_start_year_secondary - self.date_start_year + 10
-            when 'circa' then self.date_start_year_secondary - self.date_start_year + 5
-            when 'Century' then self.date_start_year_secondary - self.date_start_year + 99
-            when '1st third' then self.date_start_year_secondary - self.date_start_year + 16
-            when '2nd third' then self.date_start_year_secondary - self.date_start_year + 16
-            when '3rd third' then self.date_start_year_secondary - self.date_start_year + 16
-            when '1st quarter' then self.date_start_year_secondary - self.date_start_year + 12
-            when '2nd quarter' then self.date_start_year_secondary - self.date_start_year + 12
-            when '3rd quarter' then self.date_start_year_secondary - self.date_start_year + 12
-            when '4th quarter' then self.date_start_year_secondary - self.date_start_year + 12
-            when '1st half' then self.date_start_year_secondary - self.date_start_year+25
-            when '2nd half' then self.date_start_year_secondary - self.date_start_year+25
-            when 'beginCent' then self.date_start_year_secondary - self.date_start_year+12
-            when 'midCent' then self.date_start_year_secondary - self.date_start_year + 16
-            when 'precise' then self.date_start_year_secondary - self.date_start_year
-            when 'endCent' then self.date_start_year_secondary - self.date_start_year + 12
+            when 'openLeft' then self.date_start_century_secondary - self.date_start_year
+            when 'turnCent' then self.date_start_century_secondary - self.date_start_year + 10
+            when 'circa' then self.date_start_century_secondary - self.date_start_year + 5
+            when 'Century' then self.date_start_century_secondary - self.date_start_year + 99
+            when '1st third' then self.date_start_century_secondary - self.date_start_year + 16
+            when '2nd third' then self.date_start_century_secondary - self.date_start_year + 16
+            when '3rd third' then self.date_start_century_secondary - self.date_start_year + 16
+            when '1st quarter' then self.date_start_century_secondary - self.date_start_year + 12
+            when '2nd quarter' then self.date_start_century_secondary - self.date_start_year + 12
+            when '3rd quarter' then self.date_start_century_secondary - self.date_start_year + 12
+            when '4th quarter' then self.date_start_century_secondary - self.date_start_year + 12
+            when '1st half' then self.date_start_century_secondary - self.date_start_year+25
+            when '2nd half' then self.date_start_century_secondary - self.date_start_year+25
+            when 'beginCent' then self.date_start_century_secondary - self.date_start_year+12
+            when 'midCent' then self.date_start_century_secondary - self.date_start_year + 16
+            when 'precise' then self.date_start_century_secondary - self.date_start_year
+            when 'endCent' then self.date_start_century_secondary - self.date_start_year + 12
             when 'openRight' then 2010
           end
         end
@@ -331,43 +331,43 @@ class TimeEvent < ActiveRecord::Base
         end
         if self.date_end_century_secondary != nil  # add in plus delta for right bounds
           self.date_end_year_secondary = case self.finish_encoding_type_secondary
-            when 'openLeft' then self.date_end_year_secondary
-            when 'turnCent' then self.date_end_year_secondary
-            when 'circa' then self.date_end_year_secondary
-            when 'Century' then self.date_end_year_secondary
-            when '1st third' then self.date_end_year_secondary + 16
-            when '2nd third' then self.date_end_year_secondary + 50
-            when '3rd third' then self.date_end_year_secondary + 83
-            when '1st quarter' then self.date_end_year_secondary + 12
-            when '2nd quarter' then self.date_end_year_secondary + 37
-            when '3rd quarter' then self.date_end_year_secondary + 62
+            when 'openLeft' then self.date_end_century_secondary
+            when 'turnCent' then self.date_end_century_secondary
+            when 'circa' then self.date_end_century_secondary
+            when 'Century' then self.date_end_century_secondary
+            when '1st third' then self.date_end_century_secondary + 16
+            when '2nd third' then self.date_end_century_secondary + 50
+            when '3rd third' then self.date_end_century_secondary + 83
+            when '1st quarter' then self.date_end_century_secondary + 12
+            when '2nd quarter' then self.date_end_century_secondary + 37
+            when '3rd quarter' then self.date_end_century_secondary + 62
             when '4th quarter' then self.date_start_year_secondary + 87
-            when '1st half' then self.date_end_year_secondary+25
-            when '2nd half' then self.date_end_year_secondary+75
-            when 'beginCent' then self.date_end_year_secondary+12
-            when 'midCent' then self.date_end_year_secondary + 50
-            when 'precise' then self.date_end_year_secondary
-            when 'endCent' then self.date_end_year_secondary + 87
-            when 'openRight' then self.date_end_year_secondary
+            when '1st half' then self.date_end_century_secondary+25
+            when '2nd half' then self.date_end_century_secondary+75
+            when 'beginCent' then self.date_end_century_secondary+12
+            when 'midCent' then self.date_end_century_secondary + 50
+            when 'precise' then self.date_end_century_secondary
+            when 'endCent' then self.date_end_century_secondary + 87
+            when 'openRight' then self.date_end_century_secondary
           end
           self.date_end_plus_delta = case self.finish_encoding_type_secondary
-            when 'openLeft' then self.date_end_year_secondary - self.date_end_year
-            when 'turnCent' then self.date_end_year_secondary - self.date_end_year + 10
-            when 'circa' then self.date_end_year_secondary - self.date_end_year + 5
-            when 'Century' then self.date_end_year_secondary - self.date_end_year + 99
-            when '1st third' then self.date_end_year_secondary - self.date_end_year + 16
-            when '2nd third' then self.date_end_year_secondary - self.date_end_year + 16
-            when '3rd third' then self.date_end_year_secondary - self.date_end_year + 16
-            when '1st quarter' then self.date_end_year_secondary - self.date_end_year + 12
-            when '2nd quarter' then self.date_end_year_secondary - self.date_end_year + 12
-            when '3rd quarter' then self.date_end_year_secondary - self.date_end_year + 12
-            when '4th quarter' then self.date_end_year_secondary - self.date_end_year + 12
-            when '1st half' then self.date_end_year_secondary - self.date_end_year+25
-            when '2nd half' then self.date_end_year_secondary - self.date_end_year+25
-            when 'beginCent' then self.date_end_year_secondary - self.date_end_year+12
-            when 'midCent' then self.date_end_year_secondary - self.date_end_year + 16
-            when 'precise' then self.date_end_year_secondary - self.date_end_year
-            when 'endCent' then self.date_end_year_secondary - self.date_end_year + 12
+            when 'openLeft' then self.date_end_century_secondary - self.date_end_year
+            when 'turnCent' then self.date_end_century_secondary - self.date_end_year + 10
+            when 'circa' then self.date_end_century_secondary - self.date_end_year + 5
+            when 'Century' then self.date_end_century_secondary - self.date_end_year + 99
+            when '1st third' then self.date_end_century_secondary - self.date_end_year + 16
+            when '2nd third' then self.date_end_century_secondary - self.date_end_year + 16
+            when '3rd third' then self.date_end_century_secondary - self.date_end_year + 16
+            when '1st quarter' then self.date_end_century_secondary - self.date_end_year + 12
+            when '2nd quarter' then self.date_end_century_secondary - self.date_end_year + 12
+            when '3rd quarter' then self.date_end_century_secondary - self.date_end_year + 12
+            when '4th quarter' then self.date_end_century_secondary - self.date_end_year + 12
+            when '1st half' then self.date_end_century_secondary - self.date_end_year+25
+            when '2nd half' then self.date_end_century_secondary - self.date_end_year+25
+            when 'beginCent' then self.date_end_century_secondary - self.date_end_year+12
+            when 'midCent' then self.date_end_century_secondary - self.date_end_year + 16
+            when 'precise' then self.date_end_century_secondary - self.date_end_year
+            when 'endCent' then self.date_end_century_secondary - self.date_end_year + 12
             when 'openRight' then 2010
           end
         end
