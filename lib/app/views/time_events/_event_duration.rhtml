@@ -77,7 +77,7 @@
 <% else %>
 <div id="textual_content_container_start">
 <% end %>
-	Century: <%= select("record", "date_start_century", [['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]],  {:include_blank => true},{:id => 'century_start_year', :onclick => "$('datestart').value=this.value;$('datecenter').value=this.value;$('dateend').value=this.value;"}) %>
+	Century: <%= select("record", "date_start_century", [['2nd',100],['3rd',200],['4th',300],['5th',400],['6th',500],['7th',600],['8th',700],['9th',800],['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]],  {:include_blank => true},{:id => 'century_start_year', :onclick => "$('datestart').value=this.value;$('datecenter').value=this.value;$('dateend').value=this.value;"}) %>
 	Encoding: <%= select("record", "begin_encoding_type", ['circa','Century','beginCent','midCent','endCent','turnCent','1st half','2nd half','1st third','2nd third','3rd third','1st quarter','2nd quarter','3rd quarter','4th quarter','openLeft','openRight'], {:include_blank => true}, {:id => 'begin_encoding_type', :onclick => ""}) %>
 	<% if @record.date_start_year_secondary == nil %>
 		<span id="expand_begin">
@@ -90,7 +90,7 @@
 		<span id="begin_secondary" >
 	<% end %>
 		<strong>End: </strong>
-		Century: <%= select("record", "date_start_century_secondary", [['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]],  {:include_blank => true},{:id => 'century_start_year_secondary'}) %>
+		Century: <%= select("record", "date_start_century_secondary", [['2nd',100],['3rd',200],['4th',300],['5th',400],['6th',500],['7th',600],['8th',700],['9th',800],['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]],  {:include_blank => true},{:id => 'century_start_year_secondary'}) %>
 		Encoding: <%= select("record", "begin_encoding_type_secondary", ['circa','Century','beginCent','midCent','endCent','turnCent','1st half','2nd half','1st third','2nd third','3rd third','1st quarter','2nd quarter','3rd quarter','4th quarter','openLeft','openRight'], {:include_blank => true}, {:id => 'begin_encoding_type_secondary', :onclick => ""}) %>
 	</span>
 	
@@ -101,7 +101,7 @@
 <% else %>
 <div id="textual_content_container_stop">
 <% end %>
-	Century: <%= select("record", "date_end_century", [['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]], {:include_blank => true}, {:id => 'century_finish_year', :onclick => "$('datestart2').value=this.value;$('datecenter2').value=this.value;$('dateend2').value=this.value;"}) %>
+	Century: <%= select("record", "date_end_century", [['2nd',100],['3rd',200],['4th',300],['5th',400],['6th',500],['7th',600],['8th',700],['9th',800],['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]], {:include_blank => true}, {:id => 'century_finish_year', :onclick => "$('datestart2').value=this.value;$('datecenter2').value=this.value;$('dateend2').value=this.value;"}) %>
 	Encoding: <%= select("record", "finish_encoding_type", ['circa','Century','beginCent','midCent','endCent','turnCent','1st half','2nd half','1st third','2nd third','3rd third','1st quarter','2nd quarter','3rd quarter','4th quarter','openLeft','openRight'], {:include_blank => true}, {:id => 'finish_encoding_type', :onclick => ""}) %>
 	<% if @record.date_start_year_secondary == nil %>
 		<span id="expand_end">
@@ -114,7 +114,7 @@
 		<span id="end_secondary" >
 	<% end %>
 		<strong>End: </strong>
-		Century: <%= select("record", "date_end_century_secondary", [['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]],  {:include_blank => true},{:id => 'century_end_year_secondary'}) %>
+		Century: <%= select("record", "date_end_century_secondary", [['2nd',100],['3rd',200],['4th',300],['5th',400],['6th',500],['7th',600],['8th',700],['9th',800],['10th',900],['11th',1000],['12th',1100],['13th',1200],['14th',1300],['15th',1400],['16th',1500],['17th',1600],['17th',1700],['19th',1800],['20th',1900],['21th',2000]],  {:include_blank => true},{:id => 'century_end_year_secondary'}) %>
 		Encoding: <%= select("record", "finish_encoding_type_secondary", ['circa','Century','beginCent','midCent','endCent','turnCent','1st half','2nd half','1st third','2nd third','3rd third','1st quarter','2nd quarter','3rd quarter','4th quarter','openLeft','openRight'], {:include_blank => true}, {:id => 'end_encoding_type_secondary', :onclick => ""}) %>
 	</span>
 </div>
