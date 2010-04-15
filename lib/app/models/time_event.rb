@@ -22,6 +22,14 @@ class TimeEvent < ActiveRecord::Base
       end
     else
       str = case date_start_century
+        when 100 then '2nd'
+        when 200 then '3rd'
+        when 300 then '4th'
+        when 400 then '5th'
+        when 500 then '6th'
+        when 600 then '7th'
+        when 700 then '8th'
+        when 800 then '9th'
         when 900 then '10th'
         when 1000 then '11th'
         when 1100 then '12th'
@@ -41,6 +49,14 @@ class TimeEvent < ActiveRecord::Base
       end
       if date_end_century != nil
         cent = case date_end_century
+          when 100 then '2nd'
+          when 200 then '3rd'
+          when 300 then '4th'
+          when 400 then '5th'
+          when 500 then '6th'
+          when 600 then '7th'
+          when 700 then '8th'
+          when 800 then '9th'
           when 900 then '10th'
           when 1000 then '11th'
           when 1100 then '12th'
@@ -57,6 +73,14 @@ class TimeEvent < ActiveRecord::Base
         str2 = " - #{cent} #{finish_encoding_type}"
         if date_end_century_secondary != nil
           cent = case date_end_century_secondary
+            when 100 then '2nd'
+            when 200 then '3rd'
+            when 300 then '4th'
+            when 400 then '5th'
+            when 500 then '6th'
+            when 600 then '7th'
+            when 700 then '8th'
+            when 800 then '9th'
             when 900 then '10th'
             when 1000 then '11th'
             when 1100 then '12th'
