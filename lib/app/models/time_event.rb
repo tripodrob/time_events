@@ -429,9 +429,9 @@ class TimeEvent < ActiveRecord::Base
       self.begin_date_end = "#{self.date_start_year}-#{self.date_start_month}-#{self.date_start_day}"
     end
     if self.finish_date_start == nil and self.date_end_year != nil
-      self.finish_date_start = "#{self.date_end_year}-#{self.date_end_month}-#{self.date_end_day}"
-      self.finish_date_center = "#{self.date_end_year}-#{self.date_end_month}-#{self.date_end_day}"
-      self.finish_date_end = "#{self.date_end_year}-#{self.date_end_month}-#{self.date_end_day}"
+      # self.finish_date_start = "#{self.date_end_year}-#{self.date_end_month}-#{self.date_end_day}"
+      # self.finish_date_center = "#{self.date_end_year}-#{self.date_end_month}-#{self.date_end_day}"
+      # self.finish_date_end = "#{self.date_end_year}-#{self.date_end_month}-#{self.date_end_day}"
     end
     self.sort_order = (temp_date_start_year * 10000000) - (self.date_start_minus_delta * 10000000) + (self.date_start_month * 100) + self.date_start_encoding_value + self.date_span_value + self.date_start_day
   end
