@@ -105,7 +105,11 @@ class TimeEvent < ActiveRecord::Base
   def parse_dates
     # debugger
     if self.begin_date_center != nil
-      a = self.begin_date_center.split('-')
+      if self.begin_date_center[0] != 45
+        a = self.begin_date_center.split('-')
+      else
+        a = self.begin_date_center.split(' ')
+      end
       if a.size > 0
         self.date_start_year = a[0].to_i
       end
@@ -117,7 +121,12 @@ class TimeEvent < ActiveRecord::Base
       end
     end
     if self.finish_date_center != nil
-      a = self.finish_date_center.split('-')
+      if self.finish_date_center[0] != 45
+        a = self.finish_date_center.split('-')
+      else
+        a = self.finish_date_center.split(' ')
+      end
+      # a = self.finish_date_center.split('-')
       if a.size > 0
         self.date_end_year = a[0].to_i
       end
@@ -132,28 +141,48 @@ class TimeEvent < ActiveRecord::Base
     self.date_start_minus_delta = 0
     if self.begin_type != 'century'   # need to add circa for "by year"
       if self.begin_date_start != nil
-        a = self.begin_date_start.split('-')
+        if self.begin_date_start[0] != 45
+          a = self.begin_date_start.split('-')
+        else
+          a = self.begin_date_start.split(' ')
+        end
+        # a = self.begin_date_start.split('-')
         if a.size > 0
           start = a[0].to_i
           self.date_start_minus_delta = self.date_start_year - start
         end
       end
       if self.begin_date_end != nil
-        a = self.begin_date_end.split('-')
+        if self.begin_date_end[0] != 45
+          a = self.begin_date_end.split('-')
+        else
+          a = self.begin_date_end.split(' ')
+        end
+        # a = self.begin_date_end.split('-')
         if a.size > 0
           finish = a[0].to_i
           self.date_start_plus_delta = finish - self.date_start_year
         end
       end
       if self.finish_date_start != nil
-        a = self.finish_date_start.split('-')
+        if self.finish_date_start[0] != 45
+          a = self.finish_date_start.split('-')
+        else
+          a = self.finish_date_start.split(' ')
+        end
+        # a = self.finish_date_start.split('-')
         if a.size > 0
           start = a[0].to_i
           self.date_end_minus_delta = self.date_end_year - start
         end
       end
       if self.finish_date_end != nil
-        a = self.finish_date_end.split('-')
+        if self.finish_date_end[0] != 45
+          a = self.finish_date_end.split('-')
+        else
+          a = self.finish_date_end.split(' ')
+        end
+        # a = self.finish_date_end.split('-')
         if a.size > 0
           finish = a[0].to_i
           self.date_end_plus_delta = finish - self.date_end_year
@@ -180,6 +209,7 @@ class TimeEvent < ActiveRecord::Base
           when 'precise' then self.date_start_year
           when 'endCent' then self.date_start_year + 87
           when 'openRight' then self.date_start_year
+          else self.date_start_year
         end
         self.date_start_minus_delta = case self.begin_encoding_type
           when 'openLeft' then 2000
@@ -267,7 +297,7 @@ class TimeEvent < ActiveRecord::Base
       self.date_end_year = self.date_start_year 
       self.date_end_month = self.date_start_month
       self.date_end_day = self.date_start_day 
-      self.date_end_plus_delta = self.date_start_plus_delta 
+      self.date_end_plus_delta = 0 #self.date_start_plus_delta 
       if self.finish_date_start != nil
         self.date_end_year = case self.finish_encoding_type
           when 'openLeft' then self.date_end_year
@@ -416,6 +446,7 @@ class TimeEvent < ActiveRecord::Base
         when 'precise' then temp_date_start_year
         when 'endCent' then temp_date_start_year + 75
         # when 'openRight' then 120000
+      else temp_date_start_year
       end
     end
     if self.begin_type == 'century' or self.finish_date_start != nil
@@ -433,6 +464,7 @@ class TimeEvent < ActiveRecord::Base
       # self.finish_date_center = "#{self.date_end_year}-#{self.date_end_month}-#{self.date_end_day}"
       # self.finish_date_end = "#{self.date_end_year}-#{self.date_end_month}-#{self.date_end_day}"
     end
+    # debugger
     self.sort_order = (temp_date_start_year * 10000000) - (self.date_start_minus_delta * 10000000) + (self.date_start_month * 100) + self.date_start_encoding_value + self.date_span_value + self.date_start_day
   end
 end
